@@ -1,5 +1,5 @@
-﻿#define FACTORIAL 
-//#define CALC
+﻿//#define FACTORIAL 
+#define CALC
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
@@ -36,18 +36,38 @@ namespace HomeWork
             
 #endif
 #if CALC
-			double a = double.Parse(Console.ReadLine());
-			string symb = Console.ReadLine();
-			double b = double.Parse(Console.ReadLine());
-			switch (symb)
+		
+            Console.Write("Введите арифметическое выражение: ");
+			string expressinon = Console.ReadLine();
+			expressinon = expressinon.Replace('.', ',');
+			char[] delimeters = new char[] {'+', '-', '*', '/'};
+			string[] numbers = expressinon.Split(delimeters);
+			//В классе 'string' есть метод Split(,,), который принимает набор разделителей
+			//и возвращает "разрезанную" строку по указанным разделителям в виде массива строк.
+			try
 			{
-				case "+": Console.WriteLine(a + " + " + b + " = " + (a + b)); break;
-				case "-": Console.WriteLine(a + " - " + b + " = " + (a - b)); break;
-				case "*": Console.WriteLine(a + " * " + b + " = " + (a * b)); break;
-				case "/": Console.WriteLine(a + " / " + b + " = " + (a / b)); break;
-			} 
+				double a = double.Parse(numbers[0]);
+				double b = double.Parse(numbers[1]);
+				#region IFcalc
+				/*if (expressinon.Contains("+")) Console.WriteLine(a + " + " + b + " = " + (a + b));
+			else if(expressinon.Contains("-")) Console.WriteLine(a + " - " + b + " = " + (a - b));
+			else if(expressinon.Contains("*")) Console.WriteLine(a + " * " + b + " = " + (a * b));
+			else if(expressinon.Contains("/")) Console.WriteLine(a + " / " + b + " = " + (a / b));*/
+				#endregion
+				switch (expressinon[expressinon.IndexOfAny(delimeters)])
+				{
+					case '+': Console.WriteLine(a + " + " + b + " = " + (a + b));break;
+					case '-': Console.WriteLine(a + " - " + b + " = " + (a - b));break;
+					case '*': Console.WriteLine(a + " * " + b + " = " + (a * b));break;
+					case '/': Console.WriteLine(a + " / " + b + " = " + (a / b));break;
+				}
+			}
+			catch (Exception ex)
+			{
+                Console.WriteLine(ex.Message);
+			}
 #endif
-
+			Main(args);
 		}
 	}
 }
