@@ -1,4 +1,5 @@
-﻿using System;
+﻿//#define HW
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,13 +11,14 @@ namespace snake
 	{
 		static void Main(string[] args)
 		{
-		const char UPPER_ARROW = (char)8593;
-            Console.WriteLine(UPPER_ARROW);
-			char key;
+			Console.SetBufferSize(Console.WindowWidth, Console.WindowHeight);
+			Random rand = new Random();
+#if HW
+		char key;
 			do
 			{
 				key = Console.ReadKey(true).KeyChar;
-                //Console.WriteLine((int)key);
+				//Console.WriteLine((int)key);
 				try
 				{
 					switch (key)
@@ -43,7 +45,6 @@ namespace snake
 						case 's':
 						case 'ы':
 						case 'Ы':
-						case '↓':
 							Console.CursorTop += 1;
 							break;
 					}
@@ -51,13 +52,50 @@ namespace snake
 				catch (Exception ex)
 				{
 
-                    Console.WriteLine(ex.Message);
-                    Console.WriteLine("Press Enter for сontinue");
+					Console.WriteLine(ex.Message);
+					Console.WriteLine("Press Enter for сontinue");
 					Console.ReadLine();
 					Console.Clear();
 				}
-				
-			} while (true);
+
+			} while (key != 27); 
+#endif
+			int x = rand.Next(Console.WindowWidth);
+			int y = rand.Next(Console.WindowHeight);
+			ConsoleKey key;
+			Console.CursorVisible = false;
+			do
+			{
+				Console.Clear();
+				Console.SetCursorPosition(0,0);
+				Console.ResetColor();
+                Console.WriteLine("x = " + x + " y = " + y);
+				Console.SetCursorPosition(x, y);
+				Console.ForegroundColor = ConsoleColor.DarkYellow;
+                Console.WriteLine((char)2);
+				key = Console.ReadKey(true).Key;
+				switch (key)
+				{
+					case ConsoleKey.W:
+					case ConsoleKey.UpArrow:	
+						y--;break;
+					case ConsoleKey.S:
+					case ConsoleKey.DownArrow:	
+						y++;break;
+					case ConsoleKey.A:
+					case ConsoleKey.LeftArrow:	
+						x--;break;
+					case ConsoleKey.D:
+					case ConsoleKey.RightArrow:		
+						x++;break;	
+				}
+				if(x==0 || y==0 || x==Console.WindowWidth || y==Console.WindowHeight)Console.Beep();	
+				if (x == 0)x = 1;
+				if(x == Console.WindowWidth)x=Console.WindowWidth - 1;
+				if (y == 0)y = 1;
+				if(y == Console.WindowHeight)y=Console.WindowHeight - 1;
+
+			} while (key != ConsoleKey.Escape);
 		}
 	}
 }

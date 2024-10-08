@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeWork", "HomeWork\HomeWo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "snake", "snake\snake.csproj", "{C858D1FE-5D8F-4C76-9AD5-52266E1374BB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arrays", "Arrays\Arrays.csproj", "{B5DB7B07-9588-4CBD-A829-7DA4F72B1F8D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{C858D1FE-5D8F-4C76-9AD5-52266E1374BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C858D1FE-5D8F-4C76-9AD5-52266E1374BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C858D1FE-5D8F-4C76-9AD5-52266E1374BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5DB7B07-9588-4CBD-A829-7DA4F72B1F8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5DB7B07-9588-4CBD-A829-7DA4F72B1F8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5DB7B07-9588-4CBD-A829-7DA4F72B1F8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5DB7B07-9588-4CBD-A829-7DA4F72B1F8D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
