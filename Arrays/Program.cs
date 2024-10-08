@@ -1,6 +1,6 @@
-﻿//#define ARRAYS_1
+﻿#define ARRAYS_1
 //#define ARRAYS_2
-#define JAGGED_ARRAY
+//#define JAGGED_ARRAY
 
 using System;
 using System.Collections.Generic;
@@ -13,7 +13,7 @@ namespace Arrays
 {
 	internal class Program
 	{
-		double sum(int[] arr)
+		static double sum(int[] arr)
 		{
 			double sum = 0;
 			for (int i = 0; i < arr.Length; i++)
@@ -46,7 +46,7 @@ namespace Arrays
 			}
 			return sum;
 		}
-		int minValue(int[] arr)
+		static int minValue(int[] arr)
 		{
 			int minValue = arr[0];
 			for (int i = 0; i < arr.Length; i++)
@@ -88,7 +88,7 @@ namespace Arrays
 			}
 			return minValue;
 		}
-		int maxValue(int[] arr)
+		static int maxValue(int[] arr)
 		{
 			int maxValue = arr[0];
 			for(int i = 0; i < arr.Length;i++)
@@ -130,7 +130,7 @@ namespace Arrays
 			}
 			return maxValue;
 		}
-		void bubble_sort(ref int value, ref int next_value)
+		static void bubble_sort(ref int value, ref int next_value)
 		{
 			int buffer = value;
 			value = next_value;
@@ -144,6 +144,7 @@ namespace Arrays
 			Random rand = new Random(0);//0 - Seed value
 										//int[] arr = new[] { 3, 5, 8, 13, 21 };
 			int[] arr = new int[n];
+			
 			for (int i = 0; i < arr.Length; i++)
 			{
 				arr[i] = rand.Next(100);
